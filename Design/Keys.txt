@@ -1,0 +1,2 @@
+
+Double click on anchor point to round the conner when using pen tool.
