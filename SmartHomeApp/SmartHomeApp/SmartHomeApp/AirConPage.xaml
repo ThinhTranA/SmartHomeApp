@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:rb="clr-namespace:Xamarin.Forms.DebugRainbows;assembly=Xamarin.Forms.DebugRainbows"
+    xmlns:pc="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="SmartHomeApp.AirConPage"
+    BackgroundColor="{StaticResource BackgroundColor.Default}">
+    <ContentPage.Content>
+        <StackLayout Margin="10,0">
+            <ImageButton
+                x:Name="BackButton"
+                Source="Arrow"
+                Margin="10,20"
+                BackgroundColor="Transparent"
+                VerticalOptions="Start"
+                HorizontalOptions="Start"
+                Clicked="BackButton_Clicked" />
+
+            <Grid Margin="30,10,20,0" rb:DebugRainbow.IsDebug="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalOptions="Start"
+                    Source="AirConGray" />
+                <StackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="0,-20,0,0"
+                    Spacing="0"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="Start"
+                    Orientation="Horizontal">
+                    <Label
+                        Text="27"
+                        FontSize="100"
+                        Style="{StaticResource DefaultLabel}" />
+                    <Label
+                        Text="o"
+                        FontSize="30"
+                        FontAttributes="Bold"
+                        Margin="0,20,0,0"
+                        VerticalOptions="Center"
+                        Style="{StaticResource DefaultLabel}" />
+                    <Label
+                        Text="C"
+                        FontSize="40"
+                        Margin="0,20"
+                        VerticalOptions="End"
+                        FontAttributes="Bold"
+                        Style="{StaticResource DefaultLabel}" />
+                </StackLayout>
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Temperature" />
+
+                <Grid
+                    Grid.Row="0"
+                    Grid.RowSpan="3"
+                    Grid.Column="1">
+                    <BoxView
+                        WidthRequest="60"
+                        HeightRequest="160"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        CornerRadius="20"
+                        Color="{StaticResource Gray.Default}" />
+
+                    <pc:PancakeView
+                        CornerRadius="0,0,20,20"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                        <BoxView
+                            WidthRequest="60"
+                            HeightRequest="120"
+                            Color="{StaticResource Orange.Default}" />
+                    </pc:PancakeView>
+
+
+                </Grid>
+
+            </Grid>
+
+
+            <Grid Margin="20">
+                <Label
+                    Text="Direction"
+                    HorizontalOptions="Start"
+                    Style="{StaticResource DefaultLabel}" />
+                <Label
+                    Text="45&#186;"
+                    HorizontalOptions="End"
+                    Style="{StaticResource DefaultLabel}" />
+            </Grid>
+            <Slider
+                ThumbColor="{StaticResource Orange.Default}"
+                MinimumTrackColor="{StaticResource Orange.Default}"
+                Maximum="100"
+                Value="45" />
+
+            <Grid Margin="20">
+                <Label Text="Speed" Style="{StaticResource DefaultLabel}" />
+                <Label
+                    Text="12"
+                    HorizontalOptions="End"
+                    Style="{StaticResource DefaultLabel}" />
+            </Grid>
+            <Slider
+                ThumbColor="{StaticResource Orange.Default}"
+                MinimumTrackColor="{StaticResource Orange.Default}"
+                Maximum="30"
+                Value="12" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

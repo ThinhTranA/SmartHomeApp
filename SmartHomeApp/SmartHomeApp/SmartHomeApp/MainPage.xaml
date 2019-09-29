@@ -1,16 +1,225 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="SmartHomeApp.MainPage">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rb="clr-namespace:Xamarin.Forms.DebugRainbows;assembly=Xamarin.Forms.DebugRainbows"
+    mc:Ignorable="d"
+    x:Class="SmartHomeApp.MainPage"
+    xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+    BackgroundColor="#F9FAFC">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout Margin="10" Spacing="0">
+
+        <Label Text="Hello" FontSize="16" />
+        <Label
+            Text="John Doe"
+            Margin="0,0,0,10"
+            Style="{StaticResource DefaultLabel}"
+            FontSize="18"
+            FontAttributes="Bold" />
+
+        <Grid rb:DebugRainbow.IsDebug="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Orientation="Horizontal" Margin="0">
+                <Label
+                    Grid.Column="0"
+                    Text="34"
+                    Margin="0"
+                    FontSize="100"
+                    VerticalOptions="StartAndExpand"
+                    Style="{StaticResource DefaultLabel}" />
+                <Label
+                    Text="o"
+                    Margin="0,50,0,0"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    VerticalOptions="StartAndExpand"
+                    Style="{StaticResource DefaultLabel}" />
+                <Label
+                    Text="C"
+                    Margin="0,70,0,0"
+                    FontAttributes="Bold"
+                    FontSize="40"
+                    VerticalOptions="StartAndExpand"
+                    Style="{StaticResource DefaultLabel}" />
+            </StackLayout>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Label Margin="10,20,0,0" Text="Humidity" />
+                <microcharts:ChartView
+                    x:Name="chartView"
+                    Grid.Row="1"
+                    Margin="-10,-10,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="100" />
+            </Grid>
+
+        </Grid>
+
+        <Grid
+            rb:DebugRainbow.IsDebug="False"
+            Margin="20,10"
+            VerticalOptions="CenterAndExpand"
+            Padding="20,0"
+            RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                Grid.Row="0"
+                Grid.Column="0"
+                WidthRequest="80"
+                HeightRequest="80"
+                CornerRadius="80"
+                HasShadow="False"
+                HorizontalOptions="Center"
+                BackgroundColor="#F4F5F7">
+                <StackLayout>
+                    <Image Source="Light" HeightRequest="40" />
+                    <Label
+                        Text="Light"
+                        Style="{StaticResource DefaultLabel}"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center" />
+                </StackLayout>
+
+            </Frame>
+            <Frame
+                Grid.Row="0"
+                Grid.Column="1"
+                WidthRequest="80"
+                HeightRequest="80"
+                CornerRadius="80"
+                HasShadow="False"
+                HorizontalOptions="Center"
+                BackgroundColor="#F4F5F7">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="AirConSelected" Tapped="AirConSelected_Tapped" />
+                </Frame.GestureRecognizers>
+                <Grid Margin="10">
+                    <Image
+                        Grid.Row="0"
+                        Source="AirCon"
+                        HeightRequest="30" />
+                    <Label
+                        Grid.Row="1"
+                        Text="AC"
+                        Style="{StaticResource DefaultLabel}"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center" />
+                </Grid>
+
+            </Frame>
+            <Frame
+                Grid.Row="1"
+                Grid.Column="0"
+                WidthRequest="80"
+                HeightRequest="80"
+                CornerRadius="80"
+                HasShadow="False"
+                HorizontalOptions="Center"
+                BackgroundColor="#F4F5F7">
+                <Grid Margin="0,5">
+                    <Image
+                        Grid.Row="0"
+                        Source="Temparature"
+                        HeightRequest="40" />
+                    <Label
+                        Grid.Row="1"
+                        Text="temparature"
+                        Style="{StaticResource DefaultLabel}"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center" />
+                </Grid>
+
+            </Frame>
+            <Frame
+                Grid.Row="1"
+                Grid.Column="1"
+                WidthRequest="80"
+                HeightRequest="80"
+                CornerRadius="80"
+                HasShadow="False"
+                HorizontalOptions="Center"
+                BackgroundColor="#F4F5F7">
+                <Grid Margin="0,5">
+                    <Image
+                        Grid.Row="0"
+                        Source="Fan"
+                        HeightRequest="40" />
+                    <Label
+                        Grid.Row="1"
+                        Text="Fan"
+                        Style="{StaticResource DefaultLabel}"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center" />
+                </Grid>
+
+            </Frame>
+            <Frame
+                Grid.Row="2"
+                Grid.Column="0"
+                WidthRequest="80"
+                HeightRequest="80"
+                CornerRadius="80"
+                HasShadow="False"
+                HorizontalOptions="Center"
+                BackgroundColor="#F4F5F7">
+                <Grid Margin="0,10">
+                    <Image
+                        Grid.Row="0"
+                        Source="Wifi"
+                        HeightRequest="40" />
+                    <Label
+                        Grid.Row="1"
+                        Text="Light"
+                        Style="{StaticResource DefaultLabel}"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center" />
+                </Grid>
+
+            </Frame>
+            <Frame
+                Grid.Row="2"
+                Grid.Column="1"
+                WidthRequest="80"
+                HeightRequest="80"
+                CornerRadius="80"
+                HasShadow="False"
+                HorizontalOptions="Center"
+                BackgroundColor="#F4F5F7">
+                <Grid Margin="0,5">
+                    <Image
+                        Grid.Row="0"
+                        Source="Electricity"
+                        HeightRequest="40" />
+                    <Label
+                        Grid.Row="1"
+                        Text="Light"
+                        Style="{StaticResource DefaultLabel}"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center" />
+                </Grid>
+
+            </Frame>
+        </Grid>
+
     </StackLayout>
 
 </ContentPage>

@@ -10,7 +10,9 @@ namespace SmartHomeApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            var navPage = new NavigationPage(new MainPage());
+            navPage.BarBackgroundColor = Color.Transparent;
+            MainPage = navPage;
         }
 
         protected override void OnStart()
